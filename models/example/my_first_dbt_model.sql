@@ -11,8 +11,7 @@
 
 with source_data as (
 
-   Select * from employee
-
+   Select * from employees
 )
 
 select *

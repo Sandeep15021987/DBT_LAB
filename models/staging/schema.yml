@@ -1,0 +1,19 @@
+sources:
+  - name: raw
+    database: DBT_PROJECT
+    schema: RAW
+
+    tables:
+      - name: customers
+        columns:
+          - name: customer_id
+            tests:
+              - not_null
+              - unique
+
+      - name: orders
+        columns:
+          - name: order_id
+            tests:
+              - not_null
+              - unique

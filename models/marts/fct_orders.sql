@@ -2,7 +2,7 @@ SELECT
     o.order_id,
     o.order_date,
     o.customer_id,
-    c.customer_name,
+    {{ upper_name('c.customer_name') }} as customer_name,
     c.email,
     o.amount
 FROM {{ ref('stg_orders') }} o

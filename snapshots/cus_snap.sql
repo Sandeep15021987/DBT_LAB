@@ -2,15 +2,18 @@
 
 {{
     config(
-        target_schema='snapshots',
         unique_key='CUSTOMER_ID',
         strategy='check',
-        check_cols='CUSTOMER_NAME'
-
+        check_cols=['CUSTOMER_NAME'],
+        target_schema='snapshots'
     )
 }}
 
-select *
+select
+    CUSTOMER_ID,
+    CUSTOMER_NAME,
+    email,
+    city
 from {{ source('raw', 'customers') }}
 
 {% endsnapshot %}

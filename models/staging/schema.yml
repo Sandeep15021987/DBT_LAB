@@ -1,27 +1,28 @@
+version: 2
+
 sources:
   - name: raw
-    database: DBT_PROJECT
+    database: "{{ env_var('DBT_SOURCE_DATABASE') }}"
     schema: RAW
 
     tables:
       - name: customers
         columns:
           - name: customer_id
-            tests:
+            data_tests:
               - not_null
               - unique
 
       - name: orders
         columns:
           - name: order_id
-            tests:
+            data_tests:
               - not_null
               - unique
-             
-             
+
       - name: po_orders
         columns:
           - name: order_id
-            tests:
+            data_tests:
               - not_null
-              - unique       
+              - unique
